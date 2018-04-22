@@ -9,6 +9,7 @@ yarn-error.log*
 .idea
 .config.py
 .vscode
+*.pyc
 *.suo
 *.ntvs*
 *.njsproj
