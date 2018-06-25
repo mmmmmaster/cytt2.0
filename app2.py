@@ -10,7 +10,7 @@ from tornado.ioloop import IOLoop
 import setting
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "py"))  # 把py加入系统路径
-from index import IndexHandler,CorsHandler
+from index import Cors2Handler
 
 
 def main():
@@ -21,12 +21,11 @@ def main():
     "db": motor.MotorClient(setting.CMS_MONGO_STRING).test
   }
   handlers = [
-    (r"/", IndexHandler),
-    (r"/cors", CorsHandler),
+    (r"/cors", Cors2Handler),
     (r"/dist/apps/(.*)", StaticFileHandler, {"path": settings["static_path"]})
   ]
   app = Application(handlers, **settings)
-  app.listen(8888)
+  app.listen(8887)
   IOLoop.current().start()
 
 
